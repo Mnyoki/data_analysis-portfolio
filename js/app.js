@@ -1,41 +1,36 @@
-$(document).ready(function () 
-{
+const menuToggle = document.querySelector('#toggle-menu');
+const mainMenu = document.querySelector('#main-menu');
 
-    $("#toggle-menu").click(function (e) {
-      e.preventDefault();
-      $("#main-menu-dropdown").toggle();
-    });
-  
-})
+if (menuToggle && mainMenu) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    mainMenu.classList.toggle('is-open', !isOpen);
+  });
 
-function proj1() {
-  window.location = "https://vigorous-bardeen-465c22.netlify.app/"
+  mainMenu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      mainMenu.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 }
 
-function proj2() {
-  window.location = "https://mnyoki.github.io/team-colab/"
-}
+document.querySelectorAll('[data-year]').forEach((element) => {
+  element.textContent = new Date().getFullYear();
+});
 
-function proj3() {
-  window.location = "https://mnyoki.github.io/cat-family/"
-}
+const contactForm = document.querySelector('[data-contact-form]');
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    const response = document.querySelector('#res-text');
+    if (!contactForm.checkValidity()) return;
 
-function proj4() {
-  window.location = "https://medie.netlify.app/"
-}
-
-function proj5() {
-  window.location = "https://mnyoki.github.io/grid-test/"
-}
-
-function proj6() {
-  window.location = "https://mnyoki.github.io/wombat-coffee/"
-}
-
-function proj7() {
-  window.location = "https://friendly-einstein-fc98b5.netlify.app/"
-}
-
-function proj8() {
-  window.location = "https://github.com/Mnyoki/login-template"
+    const formData = new FormData(contactForm);
+    const subject = encodeURIComponent(`Portfolio enquiry from ${formData.get('name')}`);
+    const body = encodeURIComponent(`${formData.get('message')}\n\nReply to: ${formData.get('email')}`);
+    if (response) response.textContent = 'Opening your email app to send this message…';
+    event.preventDefault();
+    window.location.href = `mailto:mosesmunyoki6@gmail.com?subject=${subject}&body=${body}`;
+  });
 }
