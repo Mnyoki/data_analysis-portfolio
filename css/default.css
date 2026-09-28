@@ -246,6 +246,26 @@ body{font-size:var(--font-body);line-height:1.72;letter-spacing:.005em}
 @media(max-width:760px){.about-layout{display:flex;flex-direction:column;gap:30px}.about-layout>.about-copy{order:1}.about-layout>.about-photo-column{display:contents}.about-photo{order:0;height:420px;width:min(100%,520px)}.exploring-card{order:2;width:min(100%,620px);margin:0 auto}.exploring-list article{min-height:78px;padding:16px 22px}}
 @media(max-width:430px){.about-photo{height:350px}.about-visual-note{padding:18px;min-height:150px}.about-visual-note p{font-size:18px}.about-mini-chart{right:16px;bottom:22px;width:85px;height:54px}.about-note-index{left:18px}.exploring-heading{padding:20px 18px 16px}.exploring-heading h2{font-size:21px}.exploring-list article{padding:15px 18px;grid-template-columns:23px 1fr 16px;gap:9px}.exploring-list h3{font-size:12px}.exploring-list p{font-size:10px}}
 @media(max-width:760px){.project-card .project-info{min-height:0}.project-card .project-action{padding-top:14px}.closing .closing-row{align-items:flex-start}.closing .social-links{margin-top:10px}}
+@media(max-width:760px){
+  .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .work-card-large{grid-column:auto}
+  .work-card,.work-card img,.work-card-large,.work-card-large img{min-height:0;height:clamp(180px,31vw,250px)}
+  .work-card img{object-fit:cover}
+  .work-overlay{inset:0;padding:15px;background:linear-gradient(180deg,rgba(8,15,11,.04) 25%,rgba(8,15,11,.84) 100%)}
+  .work-type{font-size:8px;padding:5px 8px;max-width:calc(100% - 35px)}
+  .work-overlay strong{font-size:16px;margin-top:7px;line-height:1.2}
+  .work-description{display:none}
+  .work-arrow{right:12px;bottom:12px;width:28px;height:28px;font-size:12px}
+}
+@media(max-width:430px){
+  .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .work-card,.work-card img,.work-card-large,.work-card-large img{height:clamp(150px,43vw,190px)}
+  .work-overlay{padding:10px}
+  .work-type{font-size:7px;letter-spacing:.08em;padding:4px 6px}
+  .work-overlay strong{font-size:14px}
+  .work-arrow{right:9px;bottom:9px;width:25px;height:25px}
+  .work-all-link{margin-top:18px}
+}
 .site-nav{min-height:88px}
 .nav-links{gap:clamp(10px,2.2vw,30px);font-size:14px;font-weight:600;color:#b5c0b7}
 .nav-links>a:not(.nav-cta){position:relative;padding:12px 13px;border-radius:6px;transition:color .2s,background .2s}
