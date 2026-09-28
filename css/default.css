@@ -181,6 +181,10 @@ body{font-size:var(--font-body);line-height:1.72;letter-spacing:.005em}
 .project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
 .project-card{display:flex;flex-direction:column;min-width:0;border-radius:10px;background:linear-gradient(160deg,#1a2820,#141d18 72%)}
 .project-card img{aspect-ratio:16/9.5;flex:0 0 auto;object-fit:cover}
+.project-card img{width:100%;aspect-ratio:16/9.5;object-fit:cover;background:linear-gradient(135deg,#1d2c23,#263b2d);content-visibility:auto}
+.project-card:not(.analysis-card) img{view-transition-name:none}
+.project-card{contain:layout paint}
+.project-card .project-info{min-width:0}
 .project-card .project-info{flex:1;padding:22px 23px 21px;min-height:250px}
 .project-card .project-info-top{width:100%;min-height:100px}
 .project-card .project-info p{font-size:13px;line-height:1.7}
